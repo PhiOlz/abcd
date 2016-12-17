@@ -13,7 +13,7 @@ class MainHandler(webapp2.RequestHandler):
         self.query = Comment.all()
         for self.comment in self.query:
             self.response.write('<p1>%s</p1>' % self.comment.content)
-            self.response.write('<p2>(%s)</P2><br/>' % self.comment.comment)
+            self.response.write('<p2>(%s)</P2></br>' % self.comment.comment)
         self.response.write("""Post & Comment Here:
         <form method="post">
         <input type="textarea" name="post"></input>
