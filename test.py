@@ -33,9 +33,8 @@ class MainHandler(webapp2.RequestHandler):
         self.redirect('/')
 
     def delete(self):
-        if Comment(content) == self.request.get('del'):
-            self.comment = Comment(content,comment)
-            self.comment.key.delete()
+        j = self.query.filter("content =", self.request.get('del)
+        j.delete()
         self.redirect('/')
 
 
