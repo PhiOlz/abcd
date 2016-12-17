@@ -36,6 +36,7 @@ class MainHandler(webapp2.RequestHandler):
         self.comment = Comment.filter("content =", self.request.get('del'))
         self.comment.content = ' '
         self.comment.comment = ' '
+        self.coomment.put()
         self.redirect('/')
 
 
