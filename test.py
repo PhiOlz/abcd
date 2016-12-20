@@ -38,7 +38,7 @@ class MainHandler(webapp2.RequestHandler):
         #self.comment.comment = ' '
         #self.comment.key.delete()
         dele = self.request.get('del')
-        Comment(db.Comment.content == dele)
+        Comment(content = dele).delete()
         self.redirect('/')
 
 
