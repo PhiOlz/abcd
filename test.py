@@ -28,15 +28,17 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write('</body></html>')
 
     def post(self):
-        self.comment = Comment(content=self.request.get('post'),comment=self.request.get("posts"))
+        self.comment = Comment(content=self.request.get('post'),comment=self.request.get('posts'))
         self.comment.put()
         self.redirect('/')
 
     def delete(self):
-        self.comment = Comment.filter("content =", self.request.get('del'))
+        #self.comment = Comment.filter("content =", self.request.get('del'))
         #self.comment.content = ' '
         #self.comment.comment = ' '
-        self.comment.key.delete()
+        #self.comment.key.delete()
+        dele = self.request.get('del')
+        Comment(db.Comment.content == dele)
         self.redirect('/')
 
 
