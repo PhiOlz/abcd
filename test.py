@@ -19,12 +19,16 @@ class MainHandler(webapp2.RequestHandler):
         <input type="textarea" name="post"></input>
         <input type="textarea" name="posts"></input>
         <input type="submit"></input></form>
+        Delete Here:
         <form method="post">
         <select name="del">
         """)
         for self.comment in self.query:
             self.response.write('<option>%s</option>' % self.comment.content)
         self.response.write("""<input type="submit"></input>""")
+        for self.comment in self.query:
+            self.response.write('<option>%s' % self.comment.content)
+            self.response.write('(%s)</option>' % self.comment.comment)
         self.response.write('</body></html>')
 
     def post(self):
@@ -37,8 +41,9 @@ class MainHandler(webapp2.RequestHandler):
         #self.comment.content = ' '
         #self.comment.comment = ' '
         #self.comment.key.delete()
-        dele = self.request.get('del')
-        Comment(content = dele).delete()
+        #dele = self.request.get('del')
+        #Comment(content = dele).delete()
+        del.key.delete()
         self.redirect('/')
 
 
