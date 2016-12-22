@@ -47,7 +47,9 @@ class MainHandler(webapp2.RequestHandler):
         #self.comment.key.delete()
         #dele = self.request.get('del')
         #Comment(content = dele).delete()
-        del.key.delete()
+        #del.key.delete()
+        po = Comment.comment(self.request.get('del')
+        db.delete(po)
         self.redirect('/')
 
 
