@@ -27,11 +27,11 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write('<option>%s</option>' % self.comment.content)
         self.response.write("""<input type="submit"></input></br>""")
         self.response.write('Search Here: ')
-        self.response.write('<form>')
+        self.response.write('<table><tr>')
         for self.comment in self.query:
-            self.response.write('<option>%s' % self.comment.content)
-            self.response.write('(%s)</option>' % self.comment.comment)
-        self.response.write('</form>')
+            self.response.write('<td><option>%s' % self.comment.content)
+            self.response.write('(%s)</option></td>' % self.comment.comment)
+        self.response.write('</tr></table>')
         for self.comment in self.query:
             self.response.write('<p1>%s</p1>' % self.comment.content)
             self.response.write('<p2>(%s)</P2></br>' % self.comment.comment)
@@ -51,7 +51,7 @@ class MainHandler(webapp2.RequestHandler):
         #Comment(content = dele).delete()
         #del.key.delete()
         #po = Comment.comment(self.request.get('del'))
-        Comment.delete()
+        db.delete()
         self.redirect('/')
 
 
