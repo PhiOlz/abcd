@@ -35,8 +35,10 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write('</body></html>')
 
     def post(self):
-        self.comment = Comment(content=self.request.get('post'),comment=self.request.get('posts'))
+        i=1
+        self.comment = Comment(id=i,content=self.request.get('post'),comment=self.request.get('posts'))
         self.comment.put()
+        i=i+1
         self.redirect('/')
 
     #def delete(self):
