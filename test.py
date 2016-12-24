@@ -39,7 +39,7 @@ class MainHandler(webapp2.RequestHandler):
         self.comment.put()
         self.redirect('/')
 
-    def delete(self):
+    #def delete(self):
         #self.comment = Comment.filter("content =", self.request.get('del'))
         #self.comment.content = ' '
         #self.comment.comment = ' '
@@ -48,12 +48,21 @@ class MainHandler(webapp2.RequestHandler):
         #Comment(content = dele).delete()
         #del.key.delete()
         #po = Comment.comment(self.request.get('del'))
-        abc = self.request.get('del').get()
-        abc.comment = "This comment was deleted"
-        abc.content = "This post was deleted"
-        abc.put()
-        self.redirect('/')
+        #abc = self.request.get('del').get()
+        #abc.comment = "This comment was deleted"
+        #abc.content = "This post was deleted"
+        #abc.put()
+        #self.redirect('/')
 
+        
+class DeletionHandler(webapp2.RequestHandler):
+    def get(self):
+        if self.request.get('del') in Comment(content):
+            com = Comment.get_by_id(int(self.request.get("id")))
+            com.delete()
+            self.redirect("/")
+        else:
+            self.redirect("/")
 
 
 app = webapp2.WSGIApplication([
