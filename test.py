@@ -51,6 +51,7 @@ class MainHandler(webapp2.RequestHandler):
         abc = self.request.get('del').get()
         abc.comment = "This comment was deleted"
         abc.content = "This post was deleted"
+        abc.put()
         self.redirect('/')
 
 
