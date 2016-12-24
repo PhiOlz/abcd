@@ -11,9 +11,6 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('<html><h1>Project Parallel</h1>')
         self.query = Comment.all()
-        for self.comment in self.query:
-            self.response.write('<p1>%s</p1>' % self.comment.content)
-            self.response.write('<p2>(%s)</P2></br>' % self.comment.comment)
         self.response.write("""Post & Comment Here:
         <form method="post">
         <input type="textarea" name="post"></input>
@@ -51,7 +48,9 @@ class MainHandler(webapp2.RequestHandler):
         #Comment(content = dele).delete()
         #del.key.delete()
         #po = Comment.comment(self.request.get('del'))
-        db.delete(Comment)
+        abc = self.request.get('del').get()
+        abc.comment = "This comment was deleted"
+        abc.content = "This post was deleted"
         self.redirect('/')
 
 
