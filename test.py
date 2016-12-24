@@ -27,9 +27,11 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write('<option>%s</option>' % self.comment.content)
         self.response.write("""<input type="submit"></input></br>""")
         self.response.write('Search Here: ')
+        self.response.write('<form>')
         for self.comment in self.query:
             self.response.write('<option>%s' % self.comment.content)
             self.response.write('(%s)</option>' % self.comment.comment)
+        self.response.write('</form>')
         for self.comment in self.query:
             self.response.write('<p1>%s</p1>' % self.comment.content)
             self.response.write('<p2>(%s)</P2></br>' % self.comment.comment)
